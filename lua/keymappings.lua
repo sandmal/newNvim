@@ -1,13 +1,3 @@
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
-vim.g.mapleader = ' '
-
-vim.api.nvim_set_keymap('n','<C-s>', ':w <return>', {noremap = true, silent=true})
-
--- no hl
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
-
--- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '-', ':RnvimrToggle<CR>', {noremap = true, silent = true})
 
 -- better window movement
@@ -35,8 +25,8 @@ vim.cmd([[
 vim.cmd([[
   nnoremap <silent> <C-Up>    :resize -2<CR>
   nnoremap <silent> <C-Down>  :resize +2<CR>
-  nnoremap <silent> <C-Left>  :vertical resize -2<CR>
-  nnoremap <silent> <C-Right> :vertical resize +2<CR>
+  nnoremap <silent> <C-Left>  :vertical resize +2<CR>
+  nnoremap <silent> <C-Right> :vertical resize -2<CR>
 ]])
 
 -- better indenting
