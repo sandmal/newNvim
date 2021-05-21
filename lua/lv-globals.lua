@@ -7,7 +7,7 @@ O = {
     number = true,
     relative_number = true,
     shell = 'bash',
-	timeoutlen = 100,
+	timeoutlen = 300,
 
     -- @usage pass a table with your desired languages
     treesitter = {
@@ -47,8 +47,8 @@ O = {
         -- @usage can be 'eslint'
         linter = '',
         -- @usage can be 'prettier'
-        formatter = '',
-        autoformat = false,
+        formatter = 'prettier',
+        autoformat = true,
         diagnostics = {virtual_text = {spacing = 0, prefix = ""}, signs = true, underline = true}
     },
     json = {
@@ -68,14 +68,14 @@ O = {
 
 	dashboard = {
 		custom_header = {
-'                 _..._                                                                           ',
-'               .\'   (_`.    _                         __     ___           ',
-'              :  .      :  | |   _   _ _ __   __ _ _ _\\ \\   / (_)_ __ ___  ',
-'              :)    ()  :  | |  | | | | \'_ \\ / _` | \'__\\ \\ / /| | \'_ ` _ \\ ',
-'              `.   .   .\'  | |__| |_| | | | | (_| | |   \\ V / | | | | | | |',
-'                `-...-\'    |_____\\__,_|_| |_|\\__,_|_|    \\_/  |_|_| |_| |_|',
+    ' ██████╗ ██████╗ ██████╗ ███╗   ██╗███████╗██╗     ██╗██╗   ██╗███████╗',
+    '██╔════╝██╔═══██╗██╔══██╗████╗  ██║██╔════╝██║     ██║██║   ██║██╔════╝',
+    '██║     ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██║     ██║██║   ██║███████╗',
+    '██║     ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██║     ██║██║   ██║╚════██║',
+    '╚██████╗╚██████╔╝██║  ██║██║ ╚████║███████╗███████╗██║╚██████╔╝███████║',
+    ' ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝',
 		},
-		footer= {'chrisatmachine.com'}
+		footer= {'Cornelius Sandmal'}
 	}
 }
 

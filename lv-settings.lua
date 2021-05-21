@@ -1,7 +1,7 @@
 --[[
 O is the global options object
 
-Formatters and linters should be
+Fo matters and linters should be
 filled in as strings with either
 a global executable or a path to
 an executable
@@ -12,9 +12,9 @@ O.auto_complete = true
 O.colorscheme = 'lunar'
 O.auto_close_tree = 0
 O.wrap_lines = false
-O.timeoutlen = 100
+O.timeoutlen = 300
 
--- dashboard 
+-- dashboard
 -- O.dashboard.custom_header = {""}
 -- O.dashboard.footer = {""}
 

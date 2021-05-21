@@ -22,7 +22,6 @@ require'lspconfig'.tsserver.setup {
             signs = O.tsserver.diagnostics.signs,
             underline = O.tsserver.diagnostics.underline,
             update_in_insert = true
-
         })
     }
 }

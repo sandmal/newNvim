@@ -1,4 +1,31 @@
-vim.api.nvim_set_keymap('n', '-', ':RnvimrToggle<CR>', {noremap = true, silent = true})
+local opts = { noremap = true, silent = true }
+
+-- set leader
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', opts)
+vim.g.mapleader = ' '
+
+-- telescope
+vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fw', ':Telescope live_grep<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fg', ':Telescope git_branches<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope registers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<CR>', opts)
+
+-- Term
+vim.api.nvim_set_keymap('n', '<leader>tt', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+vim.api.nvim_set_keymap('t', '<leader>tt', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+
+-- Comments
+vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", opts)
+vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", opts)
+
+-- Explorer
+vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+
+-- esc to turn off search highlighting
+vim.api.nvim_set_keymap('n', '<ESC>', ':noh<CR>', {silent = true})
 
 -- better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
@@ -22,41 +49,28 @@ vim.cmd([[
 
 -- TODO fix this
 -- resize with arrows
-vim.cmd([[
-  nnoremap <silent> <C-Up>    :resize -2<CR>
-  nnoremap <silent> <C-Down>  :resize +2<CR>
-  nnoremap <silent> <C-Left>  :vertical resize +2<CR>
-  nnoremap <silent> <C-Right> :vertical resize -2<CR>
-]])
+vim.api.nvim_set_keymap('n', '<C-Up>', ':resize -2<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Down>', ':resize +2<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -2<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {silent = true})
 
 -- better indenting
-vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<', '<gv', opts)
+vim.api.nvim_set_keymap('v', '>', '>gv', opts)
 
 -- I hate escape
-vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', 'jk', '<ESC>', opts)
+vim.api.nvim_set_keymap('i', 'kj', '<ESC>', opts)
+vim.api.nvim_set_keymap('i', 'jj', '<ESC>', opts)
 
 -- Tab switch buffer
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', opts)
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', opts)
 
 -- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', opts)
+vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', opts)
 
 -- Better nav for omnicomplete
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
 vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
--- vim.cmd('inoremap <expr> <TAB> (\"\\<C-n>\")')
--- vim.cmd('inoremap <expr> <S-TAB> (\"\\<C-p>\")')
-
--- vim.api.nvim_set_keymap('i', '<C-TAB>', 'compe#complete()', {noremap = true, silent = true, expr = true})
-
--- vim.cmd([[
--- map p <Plug>(miniyank-autoput)
--- map P <Plug>(miniyank-autoPut)
--- map <leader>n <Plug>(miniyank-cycle)
--- map <leader>N <Plug>(miniyank-cycleback)
--- ]])

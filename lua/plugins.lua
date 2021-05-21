@@ -61,12 +61,12 @@ return require("packer").startup(
         -- Explorer
         use {"kyazdani42/nvim-tree.lua", opt = true}
         -- TODO remove when open on dir is supported by nvimtree
-        use "kevinhwang91/rnvimr"
+        -- use {"kevinhwang91/rnvimr", opt = true, disable = true}
 
         -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
         use {"lewis6991/gitsigns.nvim", opt = true}
-        -- use {"liuchengxu/vim-which-key", opt = true}
-        use {"folke/which-key.nvim", opt = true}
+        -- use {"liuchengxu/vim-which-key", opt = true, disable = true}
+        -- use {"folke/which-key.nvim", opt = true, disable = true}
         use {"ChristianChiarulli/dashboard-nvim", opt = true}
         use {"windwp/nvim-autopairs", opt = true}
         use {"terrortylor/nvim-comment", opt = true}
@@ -80,7 +80,36 @@ return require("packer").startup(
 
         -- Status Line and Bufferline
         use {"glepnir/galaxyline.nvim", opt = true}
-        use {"romgrk/barbar.nvim", opt = true}
+        -- use {"romgrk/barbar.nvim", opt = true, disable = true}
+
+        -- Navigation
+        use {
+            '3lv/femboyf',
+            -- Your configuration function
+            config = function() require'femboyf'.setup{
+            style = 'line'
+            }
+            vim.cmd[[highlight FFirst guifg=#ff0000]]
+            vim.cmd[[highlight FSecond guifg=#852e28]]
+        end,
+        disable = true
+        }
+
+        -- terminal
+        use {
+            "numtostr/FTerm.nvim",
+            config = function()
+                require("FTerm").setup{
+                    dimensions  = {
+                        height = 0.8,
+                        width = 0.8,
+                        x = 0.5,
+                        y = 0.5
+                    },
+                    border = 'single' -- or 'double'
+                }
+            end
+        }
 
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
@@ -96,7 +125,7 @@ return require("packer").startup(
         require_plugin("nvim-ts-autotag")
         require_plugin("nvim-tree.lua")
         require_plugin("gitsigns.nvim")
-        require_plugin("which-key.nvim")
+        -- require_plugin("which-key.nvim")
         require_plugin("dashboard-nvim")
         require_plugin("nvim-autopairs")
         require_plugin("nvim-comment")
@@ -104,6 +133,6 @@ return require("packer").startup(
         require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
         require_plugin("galaxyline.nvim")
-        require_plugin("barbar.nvim")
+        -- require_plugin("barbar.nvim")
     end
 )
