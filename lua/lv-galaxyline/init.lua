@@ -15,6 +15,7 @@ local colors = {
     magenta = '#D16D9E',
     grey = '#858585',
     blue = '#569CD6',
+    dark_blue = '#537afc',
     vivid_blue = '#4FC1FF',
     light_blue = '#9CDCFE',
     red = '#D16969',
@@ -28,7 +29,7 @@ gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer'}
 gls.left[1] = {
     ViMode = {
         provider = function()
-            -- auto change color according the vim mode
+           -- auto change color according the vim mode
             local mode_color = {
                 n = colors.blue,
                 i = colors.green,
@@ -52,17 +53,29 @@ gls.left[1] = {
                 t = colors.blue
             }
             vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color[vim.fn.mode()])
-            return '▊ '
+            return '▊   '
         end,
         highlight = {colors.red, colors.bg}
-    }
+   }
 }
 print(vim.fn.getbufvar(0, 'ts'))
 vim.fn.getbufvar(0, 'ts')
 
+local providerName = function()
+    local filename = vim.fn.expand('%:s')
+    local modifier = ' '
+   local color = colors.dark_blue
+    if vim.bo.modified == true then
+        modifier = ''
+        color = colors.red
+    end
+    vim.api.nvim_command('hi FileNameColor guifg='..color..' guibg='..colors.bg)
+    return filename ..' '..modifier
+end
+
 gls.left[2] = {
     GitIcon = {
-        provider = function()
+        provider = function ()
             return ' '
         end,
         condition = condition.check_git_workspace,
@@ -78,7 +91,7 @@ gls.left[3] = {
         condition = condition.check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE', colors.bg},
-        highlight = {colors.grey, colors.bg}
+        highlight = {colors.orange, colors.bg}
     }
 }
 
@@ -90,6 +103,7 @@ gls.left[4] = {
         highlight = {colors.green, colors.bg}
     }
 }
+
 gls.left[5] = {
     DiffModified = {
         provider = 'DiffModified',
@@ -98,12 +112,22 @@ gls.left[5] = {
         highlight = {colors.blue, colors.bg}
     }
 }
+
 gls.left[6] = {
     DiffRemove = {
         provider = 'DiffRemove',
         condition = condition.hide_in_width,
         icon = '  ',
         highlight = {colors.red, colors.bg}
+    }
+}
+
+gls.left[7] = {
+    FileName = {
+        provider = providerName,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = 'FileNameColor'
     }
 }
 
@@ -126,14 +150,20 @@ gls.right[5] = {
             if tbl[vim.bo.filetype] then return false end
             return true
         end,
-        icon = '  ',
+        icon = ' ',
         highlight = {colors.grey, colors.bg}
     }
 }
 
+local LineColumn = function ()
+    local col = vim.fn.col('.')
+    local line = vim.fn.line('.')
+    return ' [ '..line..' : '..col..' ] '
+end
+
 gls.right[6] = {
     LineInfo = {
-        provider = 'LineColumn',
+        provider = LineColumn,
         separator = '  ',
         separator_highlight = {'NONE', colors.bg},
         highlight = {colors.grey, colors.bg}

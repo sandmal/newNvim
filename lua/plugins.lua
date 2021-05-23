@@ -74,13 +74,14 @@ return require("packer").startup(
 
         -- Color
         use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+        use {"norcalli/nvim-colorizer.lua", config = function () require 'colorizer'.setup() end}
 
         -- Icons
         use {"kyazdani42/nvim-web-devicons", opt = true}
 
         -- Status Line and Bufferline
         use {"glepnir/galaxyline.nvim", opt = true}
-        -- use {"romgrk/barbar.nvim", opt = true, disable = true}
+        use {"romgrk/barbar.nvim", opt = true, disable= true}
 
         -- Navigation
         use {
@@ -110,7 +111,13 @@ return require("packer").startup(
                 }
             end
         }
+        -- Dir root
+        use {"ahmedkhalf/lsp-rooter.nvim"}
 
+        -- Seemless tmux
+        use {"christoomey/vim-tmux-navigator", opt = true}
+
+        require_plugin("vim-tmux-navigator")
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")
@@ -133,6 +140,6 @@ return require("packer").startup(
         require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
         require_plugin("galaxyline.nvim")
-        -- require_plugin("barbar.nvim")
+        require_plugin("barbar.nvim")
     end
 )

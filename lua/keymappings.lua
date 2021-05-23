@@ -8,7 +8,6 @@ vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>fw', ':Telescope live_grep<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>fg', ':Telescope git_branches<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope registers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope buffers<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>fh', ':Telescope help_tags<CR>', opts)
@@ -21,6 +20,10 @@ vim.api.nvim_set_keymap('t', '<leader>tt', '<C-\\><C-n><CMD>lua require("FTerm")
 vim.api.nvim_set_keymap("n", "<leader>/", ":CommentToggle<CR>", opts)
 vim.api.nvim_set_keymap("v", "<leader>/", ":CommentToggle<CR>", opts)
 
+-- splits
+vim.api.nvim_set_keymap("n", "<leader>\\", ":vsplit<CR>", opts)
+vim.api.nvim_set_keymap("n", "<leader>-", ":split<CR>", opts)
+
 -- Explorer
 vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
@@ -28,10 +31,16 @@ vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 vim.api.nvim_set_keymap('n', '<ESC>', ':noh<CR>', {silent = true})
 
 -- better window movement
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
+
+-- -- better tmux window movement
+vim.api.nvim_set_keymap('n', '<C-l>', ':TmuxNavigateRight <CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-j>', ':TmuxNavigateDown <CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-k>', ':TmuxNavigateUp <CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<C-h>', ':TmuxNavigateLeft <CR>', {silent = true})
 
 -- TODO fix this
 -- Terminal window navigation
