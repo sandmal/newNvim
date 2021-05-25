@@ -5,7 +5,7 @@ require('plugins.pack')
 require('lsp')
 
 
-local servers = { 'clangd' }
-for i, v in ipairs(servers) do
+local servers = { 'clangd', 'lua-ls', 'js-ts-ls', 'efm-general-ls'}
+for _, v in ipairs(servers) do
 	require('lsp.'..v)
 end

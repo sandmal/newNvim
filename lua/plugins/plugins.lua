@@ -3,8 +3,13 @@ local p = { }
 
 -- LSP
 p['neovim/nvim-lspconfig'] = {
-	
+
 }
+
+p['norcalli/nvim-colorizer.lua'] = {
+	config = config.colorizer
+}
+
 
 p['glepnir/lspsaga.nvim'] = {
 
@@ -25,6 +30,7 @@ p['kyazdani42/nvim-web-devicons'] = {
 p['nvim-telescope/telescope.nvim'] = {
 	-- no need yet
 	requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' },
+	disable = true
 }
 
 p['hrsh7th/vim-vsnip'] = {
@@ -51,7 +57,6 @@ p['terrortylor/nvim-comment'] = {
 p['kevinhwang91/nvim-bqf'] = {
 }
 
-
 p['norcalli/nvim-colorizer.lua'] = {
 }
 
@@ -61,10 +66,10 @@ p['numtostr/FTerm.nvim'] = {
 p['christoomey/vim-tmux-navigator'] = {
 }
 
---p['~/repos/nconf/statusbar'] = {
-p['sandmal/statusbar'] = {
+p['~/repos/nconf/statusbar'] = {
+--p['sandmal/statusbar'] = {
 	config = config.statusbar,
-	disable = true 
+	disable = false 
 }
 
 return p

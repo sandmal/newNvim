@@ -1,18 +1,18 @@
+	-- I live better without thise options:
+	-- clipboard = 'unnamedplus',
+	-- number = true,
+	-- relativenumber = true,
 local global_settings = {
 	inccommand = 'split',
 	hidden = true,
 	pumblend = 10,
 	mouse = 'a',
-	--splitbelow = true,
-	--splitright = true,
 	termguicolors = true,
 	autoindent = true,
 	showtabline = 1,
 	showmode = false,
 	undofile = true,
 	signcolumn = 'true',
-	timeoutlen = 3000,
-	--clipboard = 'unnamedplus',
 }
 
 local bw_settings = {
@@ -20,8 +20,6 @@ local bw_settings = {
 	linebreak = true,
 	tabstop = 2,
 	shiftwidth = 0,
-	number = true,
-	relativenumber = true,
 }
 
 for k, v in pairs(global_settings) do

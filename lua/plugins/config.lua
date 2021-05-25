@@ -4,6 +4,10 @@ config.telescope = function()
 
 end
 
+config.colorizer = function ()
+	require 'colorizer'.setup()
+end
+
 config.statusbar = function()
 	require('statusbar').setup{}
 end
