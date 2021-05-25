@@ -4,6 +4,10 @@ config.telescope = function()
 
 end
 
+config.statusbar = function()
+	require('statusbar').setup{}
+end
+
 config.nvim_tree = function()
 	vim.g.nvim_tree_disable_netrw = 0 -- "1 by default, disables netrw
 	vim.g.nvim_tree_hide_dotfiles = 1 -- 0 by default, this option hides files and folders starting with a dot `.`
@@ -97,6 +101,7 @@ config.compe = function()
 			return vim.fn['compe#complete']()
 		end
 	end
+
 	_G.s_tab_complete = function()
 		if vim.fn.pumvisible() == 1 then
 			return t "<C-p>"

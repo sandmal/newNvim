@@ -61,4 +61,9 @@ p['numtostr/FTerm.nvim'] = {
 p['christoomey/vim-tmux-navigator'] = {
 }
 
+p['~/repos/nconf/statusbar'] = {
+--p['sandmal/statusbar'] = {
+	config = config.statusbar,
+	disable = false 
+}
 return p

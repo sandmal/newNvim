@@ -31,9 +31,9 @@ function Packer:load_packer()
 	local use = packer.use
 	self:load_plugins()
 	use { 'wbthomason/packer.nvim' }
-	for _, repo in ipairs(self.repos) do
-		use(repo)
-	end
+ 	for _, repo in ipairs(self.repos) do
+ 		use(repo)
+ 	end
 end
 
 Packer:load_packer()
