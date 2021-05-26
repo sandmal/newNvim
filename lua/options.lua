@@ -13,6 +13,7 @@ local global_settings = {
 	showmode = false,
 	undofile = true,
 	signcolumn = 'true',
+	shortmess = 'filnxtToOFI'
 }
 
 local bw_settings = {

@@ -7,19 +7,10 @@ vim.g.mapleader = ' '
 
 map('n', '<leader>n', '<cmd>set number! relativenumber!<CR>', opts)
 
--- -- telescope
--- map('n', '<Leader>f', ':Telescope find_files<CR>', opts)
--- map('n', '<Leader>w', ':Telescope live_grep<CR>', opts)
--- map('n', '<Leader>g', ':Telescope git_branches<CR>', opts)
--- map('n', '<Leader>r', ':Telescope registers<CR>', opts)
--- map('n', '<Leader>b', ':Telescope buffers<CR>', opts)
--- map('n', '<Leader>h', ':Telescope help_tags<CR>', opts)
-
 -- Term
 map('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>', opts)
 map('t', '<leader>t', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
 
--- TODO Add this plugin
 -- Comments
 map("n", "<leader>/", ":CommentToggle<CR>", opts)
 map("v", "<leader>/", ":CommentToggle<CR>", opts)
@@ -30,9 +21,6 @@ map("n", "<leader>-", ":split<CR>", opts)
 
 -- Explorer
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
--- TODO test this
--- vim.api.nvim_command("command L NvimTreeToggle")
 
 -- esc to turn off search highlighting
 map('n', '<ESC>', ':noh<CR>', {silent = true})
@@ -58,9 +46,20 @@ vim.cmd([[
 ]])
 
 -- Move selected line / block of text in visual mode
-map('x', 'K', [[:move <-2<CR>gv-gv]], opts)
-map('x', 'J', [[:move >+1<CR>gv-gv]], opts)
+map('x', 'K', [[:move'<-2<CR>gv-gv]], opts)
+map('x', 'J', [[:move'>+1<CR>gv-gv]], opts)
 
 -- Better nav for omnicomplete
 vim.cmd('inoremap <expr> <c-j> (\"\\<C-n>\")')
 vim.cmd('inoremap <expr> <c-k> (\"\\<C-p>\")')
+
+----------------------------------------------------------
+---------------------UNUSED-KEYMAPPING--------------------
+----------------------------------------------------------
+-- -- telescope
+-- map('n', '<Leader>f', ':Telescope find_files<CR>', opts)
+-- map('n', '<Leader>w', ':Telescope live_grep<CR>', opts)
+-- map('n', '<Leader>g', ':Telescope git_branches<CR>', opts)
+-- map('n', '<Leader>r', ':Telescope registers<CR>', opts)
+-- map('n', '<Leader>b', ':Telescope buffers<CR>', opts)
+-- map('n', '<Leader>h', ':Telescope help_tags<CR>', opts)

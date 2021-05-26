@@ -1,11 +1,34 @@
 local config = { }
 
 config.telescope = function()
+end
 
+config.comment = function()
+	require('nvim_comment').setup()
+end
+
+
+config.femboyf = function()
+	require'femboyf'.setup {
+		when = 'always',
+		style = 'line',
+}
 end
 
 config.colorizer = function ()
-	require 'colorizer'.setup()
+	require 'colorizer'.setup{}
+end
+
+config.colorscheme = function ()
+	vim.api.nvim_command('colorscheme femboyscheme')
+end
+
+config.treesitter = function ()
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+}
 end
 
 config.statusbar = function()
