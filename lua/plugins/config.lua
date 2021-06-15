@@ -7,6 +7,9 @@ config.comment = function()
 	require('nvim_comment').setup()
 end
 
+config.instant = function()
+ vim.g.instant_username = 'sandmal'
+end
 
 config.femboyf = function()
 	require'femboyf'.setup {
@@ -20,7 +23,7 @@ config.colorizer = function ()
 end
 
 config.colorscheme = function ()
-	vim.api.nvim_command('colorscheme femboyscheme')
+	vim.api.nvim_command('colorscheme lunar')
 end
 
 config.treesitter = function ()

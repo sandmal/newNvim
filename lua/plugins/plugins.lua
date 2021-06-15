@@ -6,19 +6,21 @@ p['neovim/nvim-lspconfig'] = {
 
 }
 
+
+p['jbyuki/instant.nvim'] = {
+	config = config.instant
+}
+
 p['3lv/femboyf'] = {
 	config = config.femboyf
 }
 
-p['sandmal/colorscheme'] = {
-	config = config.colorscheme,
-	disable = true
+p['rktjmp/lush.nvim'] = {
 }
 
-
-p['3lv/femboyscheme'] = {
+p['~/repos/nconf/colorscheme'] = {
 	config = config.colorscheme,
-	disable = false 
+	disable = false
 }
 
 p['norcalli/nvim-colorizer.lua'] = {
